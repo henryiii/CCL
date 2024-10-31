@@ -1319,8 +1319,7 @@ def halomod_trispectrum_3h(cosmo, hmc, k, a, prof, *, prof2=None,
 
 
 def halomod_trispectrum_3h_linear_bias(cosmo, hmc, k, a, prof, *,
-                              bias1, bias2, bias3, bias4, p_of_k_a=None
-                           p_of_k_a=None):
+                              bias1, bias2, bias3, bias4, p_of_k_a=None):
     """ Computes the isotropized halo model 3-halo trispectrum for four
     profiles :math:`u_{1,2}`, :math:`v_{1,2}` as
 
@@ -2223,23 +2222,13 @@ def halomod_Tk3D_cNG_linear_bias(cosmo, hmc, prof,
 
 
     # approximation CAN be made here
-    tkk += halomod_trispectrum_2h_13(cosmo, hmc, k_use, a_arr,
-                                     prof, prof2=prof2,
-                                     prof3=prof3, prof4=prof4,
-                                     prof12_2pt=prof12_2pt,
-                                     prof34_2pt=prof34_2pt,
+    tkk += halomod_trispectrum_2h_13_linear_bias(cosmo, hmc, k_use, a_arr,
+                                     prof, bias1, bias2, bias3, bias4,
                                      p_of_k_a=p_of_k_a)
 
     # approximation CAN be made here
-    tkk += halomod_trispectrum_3h(cosmo, hmc, k_use, a_arr,
-                                  prof=prof,
-                                  prof2=prof2,
-                                  prof3=prof3,
-                                  prof4=prof4,
-                                  prof13_2pt=prof13_2pt,
-                                  prof14_2pt=prof14_2pt,
-                                  prof24_2pt=prof24_2pt,
-                                  prof32_2pt=prof32_2pt,
+    tkk += halomod_trispectrum_3h_linear_bias(cosmo, hmc, k_use, a_arr,
+                                  prof, bias1, bias2, bias3, bias4,
                                   p_of_k_a=None)
 
     # approximation CAN be made here
