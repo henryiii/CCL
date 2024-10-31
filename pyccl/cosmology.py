@@ -857,14 +857,14 @@ class CosmologyCalculator(Cosmology):
             Neff=None, m_nu=0., mass_split="normal", w0=-1., wa=0.,
             T_CMB=DefaultParams.T_CMB, T_ncdm=DefaultParams.T_ncdm,
             mg_parametrization=None, background=None, growth=None,
-            pk_linear=None, pk_nonlin=None, nonlinear_model=None):
+            pk_linear=None, pk_nonlin=None, nonlinear_model=None, extra_parameters=None):
 
         super().__init__(
             Omega_c=Omega_c, Omega_b=Omega_b, h=h, n_s=n_s, sigma8=sigma8,
             A_s=A_s, Omega_k=Omega_k, Omega_g=Omega_g, Neff=Neff, m_nu=m_nu,
             mass_split=mass_split, w0=w0, wa=wa, T_CMB=T_CMB, T_ncdm=T_ncdm,
             mg_parametrization=mg_parametrization,
-            transfer_function="calculator", matter_power_spectrum="calculator")
+            transfer_function="calculator", matter_power_spectrum="calculator", extra_parameters = extra_parameters)
 
         self._input_arrays = {"background": background, "growth": growth,
                               "pk_linear": pk_linear, "pk_nonlin": pk_nonlin,
